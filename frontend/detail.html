@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图书推荐网站 · 图书详情</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/detail.css">
+</head>
+<body>
+  <main class="container">
+    <!-- 返回 -->
+    <a href="list.html" class="back-link">← 返回图书列表</a>
+
+    <!-- 详情内容（JS 渲染） -->
+    <div id="detailContent">
+      <div class="loading"><div class="spinner"></div><p>正在加载图书详情…</p></div>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/detail.js"></script>
+</body>
+</html>

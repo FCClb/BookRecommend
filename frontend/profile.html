@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图书推荐网站 · 个人中心</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+  <main class="container">
+    <!-- 页面标题 -->
+    <div class="page-header">
+      <h1>👤 个人中心</h1>
+      <p class="subtitle">查看个人信息与管理收藏</p>
+    </div>
+
+    <!-- 用户信息卡片 + 收藏列表（JS 渲染） -->
+    <div id="profileContent">
+      <div class="loading"><div class="spinner"></div><p>正在加载…</p></div>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

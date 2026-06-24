@@ -1,0 +1,65 @@
+/* ============================================
+   index.css — 首页专属样式
+   ============================================ */
+
+/* ---------- 主页横幅 ---------- */
+.hero {
+  text-align: center;
+  padding: 48px 0 32px;
+}
+.hero h1 {
+  font-size: 2.2rem;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+.hero-subtitle {
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+/* ---------- 推荐区域标题 ---------- */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+}
+.section-header h2 {
+  font-size: 1.3rem;
+  color: var(--text);
+}
+.section-hint {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* ---------- 右上角学生信息 ---------- */
+.student-info {
+  position: fixed;
+  top: 80px;    /* 导航栏下方 */
+  right: 20px;
+  z-index: 999;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 16px;
+  text-align: center;
+  min-width: 120px;
+}
+.student-photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 10px;
+  border: 2px solid var(--border);
+  background: #eee;
+}
+.student-name,
+.student-id {
+  font-size: 0.82rem;
+  color: var(--text);
+  line-height: 1.8;
+}

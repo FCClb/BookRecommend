@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图书推荐网站 · 首页</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <!-- 右上角学生信息（固定在页面上） -->
+  <div class="student-info">
+    <img src="images/photo.jpg" alt="学生照片" class="student-photo" onerror="this.style.display='none'">
+    <p class="student-name">姓名：高锦博</p>
+    <p class="student-id">学号：24469209</p>
+  </div>
+
+  <main class="container">
+    <!-- 主页横幅 -->
+    <section class="hero">
+      <h1>📖 好书推荐</h1>
+      <p class="hero-subtitle">精选高分图书，发现阅读之美</p>
+    </section>
+
+    <!-- 推荐图书区域 -->
+    <section class="recommended">
+      <div class="section-header">
+        <h2>🏆 高分推荐</h2>
+        <span class="section-hint">按评分从高到低</span>
+      </div>
+      <div class="book-grid" id="bookGrid">
+        <div class="loading"><div class="spinner"></div><p>正在加载推荐图书…</p></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

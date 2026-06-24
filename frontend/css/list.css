@@ -1,0 +1,43 @@
+/* ============================================
+   list.css — 图书列表页专属样式
+   ============================================ */
+
+/* ---------- 工具栏 ---------- */
+.toolbar {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px 24px;
+  margin-bottom: 24px;
+}
+
+/* 搜索框 */
+.search-box {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.search-box .form-input {
+  flex: 1;
+  max-width: 480px;
+}
+
+/* 筛选行 */
+.filter-row {
+  display: flex;
+  gap: 32px;
+}
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0;
+}
+.filter-group label {
+  margin-bottom: 0;
+  white-space: nowrap;
+}
+.filter-group .form-input {
+  width: auto;
+  min-width: 160px;
+}

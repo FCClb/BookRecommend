@@ -1,0 +1,130 @@
+/* ============================================
+   auth.css — 登录 & 注册页共用样式
+   ============================================ */
+
+/* ---------- 表单容器 ---------- */
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - var(--nav-height) - 120px);
+  padding: 40px 0;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 420px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 40px 36px;
+}
+
+.auth-card h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.auth-card .auth-subtitle {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 28px;
+}
+
+/* ---------- 表单 ---------- */
+.auth-form .form-group {
+  margin-bottom: 20px;
+}
+
+.auth-form .form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.auth-form .form-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  transition: border-color 0.2s;
+}
+
+.auth-form .form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.auth-form .btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  margin-top: 4px;
+}
+
+/* ---------- 错误提示 ---------- */
+.auth-form .field-error {
+  font-size: 0.8rem;
+  color: #c62828;
+  margin-top: 4px;
+  display: none;
+}
+
+.auth-form .field-error.show {
+  display: block;
+}
+
+.form-error {
+  background: #FFEBEE;
+  color: #c62828;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  text-align: center;
+  display: none;
+}
+
+.form-error.show {
+  display: block;
+}
+
+.form-success {
+  background: #E8F5E9;
+  color: var(--accent);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  margin-bottom: 16px;
+  text-align: center;
+  display: none;
+}
+
+.form-success.show {
+  display: block;
+}
+
+/* ---------- 底部链接 ---------- */
+.auth-switch {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.auth-switch a {
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+.auth-switch a:hover {
+  color: var(--primary-hover);
+}

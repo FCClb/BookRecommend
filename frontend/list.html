@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>图书推荐网站 · 图书列表</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/list.css">
+</head>
+<body>
+  <main class="container">
+    <!-- 页面标题 -->
+    <div class="page-header">
+      <h1>📚 图书列表</h1>
+      <p class="subtitle">浏览全部图书，支持搜索、筛选与排序</p>
+    </div>
+
+    <!-- 工具栏：搜索 + 筛选 + 排序 -->
+    <div class="toolbar">
+      <div class="search-box">
+        <input type="text" class="form-input" id="searchInput" placeholder="搜索书名或作者…" autocomplete="off">
+        <button class="btn btn-primary" id="searchBtn">🔍 搜索</button>
+      </div>
+      <div class="filter-row">
+        <div class="form-group filter-group">
+          <label>分类：</label>
+          <select class="form-input" id="categoryFilter">
+            <option value="">全部</option>
+          </select>
+        </div>
+        <div class="form-group filter-group">
+          <label>排序：</label>
+          <select class="form-input" id="sortSelect">
+            <option value="">默认（最新）</option>
+            <option value="rating_desc">评分从高到低</option>
+            <option value="rating_asc">评分从低到高</option>
+            <option value="newest">最近入库</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- 图书网格 -->
+    <div class="book-grid" id="bookGrid">
+      <div class="loading"><div class="spinner"></div><p>正在加载图书…</p></div>
+    </div>
+
+    <!-- 分页器 -->
+    <div class="pagination" id="pagination"></div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/list.js"></script>
+</body>
+</html>

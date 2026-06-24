@@ -1,0 +1,143 @@
+/* ============================================
+   detail.css — 图书详情页专属样式
+   ============================================ */
+
+/* ---------- 返回链接 ---------- */
+.back-link {
+  display: inline-block;
+  margin: 24px 0 16px;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--primary); }
+
+/* ---------- 详情布局 ---------- */
+.detail-layout {
+  display: flex;
+  gap: 40px;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+}
+
+/* 封面区 */
+.detail-cover {
+  flex-shrink: 0;
+  width: 300px;
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.detail-cover-img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.35s;
+}
+.detail-cover-img:hover {
+  transform: scale(1.03);
+}
+.detail-cover-img.is-hidden {
+  display: none;
+}
+.detail-cover-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(135deg, #E8D5C4, #D7CCC8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.detail-cover-placeholder.is-visible {
+  display: flex;
+}
+.detail-cover-placeholder .placeholder-char {
+  font-size: 6rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.8);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  user-select: none;
+}
+
+/* 信息区 */
+.detail-info {
+  flex: 1;
+  min-width: 0;
+}
+.detail-info .book-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.detail-info .book-author {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+
+/* 评分 */
+.detail-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #F39C12;
+  margin-bottom: 20px;
+  padding: 6px 14px;
+  background: #FFF8E1;
+  border-radius: 20px;
+}
+
+/* 元数据表格 */
+.meta-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+.meta-table td {
+  padding: 10px 16px 10px 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+.meta-table td:first-child {
+  width: 80px;
+  color: var(--text-light);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 简介 */
+.book-description h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.book-description p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: var(--text);
+  text-align: justify;
+}
+
+/* 收藏按钮 */
+.fav-section {
+  margin-top: 24px;
+}
+.btn-fav {
+  padding: 10px 28px;
+  font-size: 1rem;
+}
+.btn-fav.favorited {
+  background: #c62828;
+  color: #fff;
+  border-color: #c62828;
+}
+.btn-fav.favorited:hover {
+  background: #b71c1c;
+}

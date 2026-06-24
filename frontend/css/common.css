@@ -1,0 +1,333 @@
+/* ============================================
+   common.css — 全站公共样式
+   ============================================ */
+
+/* ---------- CSS 变量 ---------- */
+:root {
+  --bg:        #FDF6EC;
+  --white:     #FFFFFF;
+  --text:      #3E2723;
+  --text-light:#8D6E63;
+  --primary:   #5D4037;
+  --primary-hover: #4E342E;
+  --accent:    #2E7D32;
+  --border:    #E0D5C7;
+  --shadow:    0 2px 12px rgba(62, 39, 35, 0.08);
+  --shadow-lg: 0 8px 30px rgba(62, 39, 35, 0.12);
+  --radius:    8px;
+  --radius-sm: 4px;
+  --nav-height: 64px;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Microsoft YaHei", "PingFang SC", "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-top: var(--nav-height);
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ---------- 容器 ---------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==================== 导航栏 ==================== */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-height);
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  z-index: 1000;
+}
+.navbar .container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.navbar .logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-right: 40px;
+}
+.navbar .nav-links {
+  display: flex;
+  gap: 32px;
+  flex: 1;
+}
+.navbar .nav-links a {
+  font-size: 0.95rem;
+  color: var(--text);
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.navbar .nav-links a:hover,
+.navbar .nav-links a.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+.navbar .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.navbar .nav-right .username { color: var(--text-light); font-size: 0.9rem; }
+
+/* ==================== 按钮 ==================== */
+.btn {
+  display: inline-block;
+  padding: 8px 20px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+}
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-outline {
+  background: transparent;
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.btn-outline:hover { background: var(--primary); color: var(--white); }
+.btn-sm { padding: 4px 12px; font-size: 0.8rem; }
+.btn-danger { background: #c62828; color: #fff; }
+.btn-danger:hover { background: #b71c1c; }
+
+/* ==================== 表单 ==================== */
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  color: var(--text);
+  font-weight: 500;
+}
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  transition: border-color 0.2s;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+textarea.form-input { resize: vertical; min-height: 80px; }
+
+/* ==================== 图书卡片 ==================== */
+.book-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* -- 封面容器 -- */
+.card-cover-wrapper {
+  position: relative;
+  aspect-ratio: 3 / 4;       /* 统一宽高比：宽 3 × 高 4 */
+  overflow: hidden;
+  background: #f0ebe3;
+}
+
+/* -- 封面图片 -- */
+.book-card .card-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s;
+}
+.book-card:hover .card-cover {
+  transform: scale(1.05);    /* hover 轻微放大 */
+}
+.book-card .card-cover.is-hidden {
+  display: none;
+}
+
+/* -- 占位符（无封面 / 加载失败时显示） -- */
+.book-card .card-cover-placeholder {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #E8D5C4 0%, #D7CCC8 100%);
+}
+.book-card .card-cover-placeholder.is-visible {
+  display: flex;
+}
+.book-card .placeholder-char {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  user-select: none;
+}
+
+/* -- 卡片信息 -- */
+.book-card .card-body {
+  padding: 14px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.book-card .card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.book-card .card-author {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+.book-card .card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: auto;
+}
+.book-card .card-rating {
+  color: #F39C12;
+  font-weight: 600;
+}
+.book-card .card-category {
+  background: #FDF6EC;
+  color: var(--primary);
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+}
+
+/* ==================== 图书网格 ==================== */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ==================== 分页器 ==================== */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 40px;
+}
+.pagination button {
+  width: 36px; height: 36px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+.pagination button:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); }
+.pagination button.active { background: var(--primary); color: var(--white); border-color: var(--primary); }
+.pagination button:disabled { opacity: 0.4; cursor: default; }
+.pagination .page-info { font-size: 0.85rem; color: var(--text-light); margin: 0 8px; }
+
+/* ==================== 页脚 ==================== */
+.footer {
+  margin-top: 60px;
+  padding: 24px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  border-top: 1px solid var(--border);
+  background: var(--white);
+}
+
+/* ==================== 页面标题 ==================== */
+.page-header {
+  margin: 32px 0 24px;
+}
+.page-header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.page-header .subtitle {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+/* ==================== 空状态 ==================== */
+.empty-state {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--text-light);
+}
+.empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
+
+/* ==================== 加载动画 ==================== */
+.loading {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--text-light);
+}
+.spinner {
+  display: inline-block;
+  width: 32px; height: 32px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ==================== Toast 提示 ==================== */
+.toast {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-size: 0.9rem;
+  z-index: 2000;
+  animation: fadeIn 0.3s;
+}
+.toast-success { background: var(--accent); }
+.toast-error { background: #c62828; }
+.toast-info { background: var(--primary); }
+@keyframes fadeIn { from { opacity: 0; transform: translateX(-50%) translateY(-8px); } }
